@@ -1,0 +1,21 @@
+<div class="popup" *ngIf="inVisible">
+    <div class="popup-content">
+      <form (ngSubmit)="onSubmit()">
+        <label for="name">Name:</label>
+        <input type="text" name="name" [(ngModel)]="todo.name" placeholder="Enter your name" required>
+  
+        <label for="todo">Todo:</label>
+        <input type="text" name="todo" [(ngModel)]="todo.todo" placeholder="Enter your todo" required>
+  
+        <label for="Date">Date:</label>
+        <input type="date" name="Date" [(ngModel)]="todo.Date" placeholder="Enter Date" required>
+  
+        <label for="status">Status:</label>
+        <input type="text" name="status" [(ngModel)]="todo.status" placeholder="Enter your status" required>
+  
+        <button type="button" class="btn btn-primary" (click)="CloseForm()">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,28 @@
+.Task{
+    display: flex;
+    justify-content: space-between;
+}
+p {
+    width: 200px;
+    float: left;
+    margin:20px;
+    border-right: 1px solid red;
+ }
+ .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+ .btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+
+.btn {
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
