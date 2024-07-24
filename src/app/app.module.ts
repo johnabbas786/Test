@@ -6,20 +6,27 @@ import { AppComponent } from './app.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { TaskListComponent } from './task-list/task-list.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PopUpComponent
+    PopUpComponent,
+    TaskListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(),
-    DatePipe
+    DatePipe,
+    provideAnimationsAsync('noop')
   ],
   bootstrap: [AppComponent]
 })

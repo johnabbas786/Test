@@ -11,7 +11,8 @@
     align-items: center;
 }
 .popup-content{
-    background-color: white;
+    background: white;
+    
     padding: 20px;
     border-radius: 5px;
     width: 300px;
@@ -28,11 +29,15 @@ form input ,form select,form button{
 }
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background: #4040ee;
+    border-color: #4040ee;
+    border-radius: 10px;
 }
  .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    background: #2929f9;
+    border-color:  #2929f9;
+}
+.btn {
+    cursor: pointer;
 }

@@ -1,0 +1,110 @@
+<!-- <div class="containers">
+  <h2>TODO LIST</h2>
+  <div class="row">
+    <button type="button" class="btn btn-primary" (click)="onCreateTask()">
+      Add Task
+    </button>
+
+    <select
+      name="drop-name"
+      (change)="changeView($event)"
+      style="background-color: rgb(180, 180, 180); border-radius: 10px"
+    >
+      <option value="All Task">All Task</option>
+      <option value="Pending Task">Pending Task</option>
+      <option value="Future Task">Future Task</option>
+      <option value="Complete Task">Complete Task</option>
+    </select>
+  </div>
+  <div class="task">
+    <div class="line">
+      <ul *ngFor="let task of tasks; let i = index">
+        <mat-icon (click)="deleteTask(i)">delete</mat-icon>
+        <mat-icon (click)="onEdit(i)">edit</mat-icon>
+        <input type="checkbox" (change)="completeTask(i)" />
+        <p>
+          <label>{{ task.name }}</label>
+        </p>
+        <p>
+          <label>{{ task.todo }}</label>
+        </p>
+        <p>
+          <label>{{ task.date }}</label>
+        </p>
+        <p>
+          <label>{{ task.status }}</label>
+        </p>
+      </ul>
+    </div>
+</div>
+  </div>
+</div> -->
+
+<div class="container">
+  <h2>TODO LIST</h2>
+  <div class="controls">
+    <button type="button" class="add-task-btn" (click)="onCreateTask()">
+      Add Task
+    </button>
+    <select class="filter-tasks" name="drop-name" (change)="changeView($event)">
+      <option value="All Task">All Task</option>
+      <option value="Pending Task">Pending Task</option>
+      <option value="Future Task">Future Task</option>
+      <option value="Complete Task">Complete Task</option>
+    </select>
+  </div>
+  <div class="task-list">
+    <div class="task-item">
+      <ul *ngFor="let task of tasks; let i = index" style="width: 100%">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+          "
+        >
+          <div>
+            <input type="checkbox" [checked]="task.isChecked" (change)="completeTask(task,i)" />
+            <p>
+              <label>{{ task.name }}</label>
+            </p>
+            <p>
+              <label>{{ task.todo }}</label>
+            </p>
+            <p>
+              <label>{{ task.date }}</label>
+            </p>
+            <p>
+              <label>{{ task.status }}</label>
+            </p>
+          </div>
+          <div>
+            <mat-icon class="delete-btn" (click)="deleteTask(task)"
+              >delete</mat-icon
+            >
+            <mat-icon class="edit-btn" (click)="onEdit(task)">edit</mat-icon>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- <div class="task-item">
+        <input type="checkbox" />
+        <div class="task-details">
+          <div class="task-name">Learn React</div>
+          <div class="task-date">5:22 AM, 01/06/2022</div>
+        </div>
+        <button class="edit-btn">✏️</button>
+        <button class="delete-btn">🗑️</button>
+      </div>
+      <div class="task-item completed">
+        <input type="checkbox" checked />
+        <div class="task-details">
+          <div class="task-name">Create a Todo App</div>
+          <div class="task-date">5:21 AM, 01/06/2022</div>
+        </div>
+        <button class="edit-btn">✏️</button>
+        <button class="delete-btn">🗑️</button>
+      </div> -->
