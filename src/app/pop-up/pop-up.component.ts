@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pop-up',
@@ -8,37 +10,31 @@ import { AppService } from '../app.service';
   styleUrls: ['./pop-up.component.scss'],
 })
 export class PopUpComponent implements OnInit {
-  inVisible = true;
   todo = {
     name: '',
     todo: '',
     date: '',
-    isChecked:false
+    isChecked: false,
   };
 
-  constructor(private router: Router, private appService: AppService) {}
+  constructor(
+    private appService: AppService,
+    private dialogRef: MatDialogRef<PopUpComponent>,
+    
+  ) {}
 
   ngOnInit() {
-    if(this.appService.currentTask.name !== ''){
-      this.todo =  this.appService.currentTask
+    if (this.appService.currentTask.name !== '') {
+      this.todo = this.appService.currentTask;
     }
   }
 
   closeForm() {
-    this.inVisible = false;
-    this.router.navigate(['']);
+    this.dialogRef.close();
   }
 
   onSubmit() {
-    if(this.appService?.currentTask.name !== ''){
-      const task: any = this.appService.tasks.find(t => t === this.appService.currentTask);
-      task.name = this.todo.name
-      task.todo = this.todo.todo
-      task.date = this.todo.date
-    }else{
-      this.appService.tasks.push(this.todo)
-    }
-    this.closeForm()
+    this.appService.submitData(this.todo)
+    this.closeForm();
   }
-      
 }

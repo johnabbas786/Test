@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AppService } from './app.service';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -9,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'], 
 })
 export class AppComponent  {
-
+  constructor(){}
 
 }
 

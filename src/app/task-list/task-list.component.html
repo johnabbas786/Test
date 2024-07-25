@@ -64,20 +64,28 @@
             align-items: center;
           "
         >
-          <div>
-            <input type="checkbox" [checked]="task.isChecked" (change)="completeTask(task,i)" />
-            <p>
-              <label>{{ task.name }}</label>
-            </p>
-            <p>
-              <label>{{ task.todo }}</label>
-            </p>
-            <p>
-              <label>{{ task.date }}</label>
-            </p>
-            <p>
-              <label>{{ task.status }}</label>
-            </p>
+          <div style="display: flex;
+    align-items: flex-start;">
+            <input
+              type="checkbox"
+              [checked]="task.isChecked"
+              (change)="completeTask(task, i)"
+              style="margin-top: 3px;"
+            />
+            <div style="margin-left: 10px;">
+              <p>
+                <label>{{ task.name }}</label>
+              </p>
+              <p>
+                <label>{{ task.todo }}</label>
+              </p>
+              <p>
+                <label>{{ task.date }}</label>
+              </p>
+              <p>
+                <label>{{ task.status }}</label>
+              </p>
+            </div>
           </div>
           <div>
             <mat-icon class="delete-btn" (click)="deleteTask(task)"

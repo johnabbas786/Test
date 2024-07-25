@@ -1,6 +1,6 @@
-<div class="popup" *ngIf="inVisible">
+<div class="popup" >
   <div class="popup-content">
-    <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
       <label for="name">Name:</label>
       <input type="text" name="name" [(ngModel)]="todo.name" placeholder="Enter your name" required>
 
