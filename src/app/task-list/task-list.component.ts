@@ -32,13 +32,15 @@ export class TaskListComponent implements OnInit {
       this.changeView(this.selectedView);
     });
   }
-
+  
   deleteTask(task: Task) {
-    const deleteTask: any = this.appService.tasks.indexOf(task);
+    this.appService.deleteTask(task.key).subscribe(() => {
+      const deleteTask: any = this.appService.tasks.indexOf(task);
     if (deleteTask > -1) {
       this.appService.tasks.splice(deleteTask, 1);
       this.changeView(this.selectedView);
     }
+    })
   }
 
   changeView(view: any) {
@@ -63,7 +65,6 @@ export class TaskListComponent implements OnInit {
       this.tasks = this.appService.tasks.filter((t) => t.isChecked);
     }
   }
-
   onEdit(task: Task) {
     const editTask: any = this.appService.tasks.find((t) => t === task);
     this.appService.currentTask = editTask;
@@ -88,7 +89,9 @@ export class TaskListComponent implements OnInit {
       todo: '',
       date: '',
       isChecked: false,
+      key: ''
     };
     const dialog = this.dialog.open(PopUpComponent);
+    
   }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pop-up',
@@ -15,6 +13,7 @@ export class PopUpComponent implements OnInit {
     todo: '',
     date: '',
     isChecked: false,
+    key: ''
   };
 
   constructor(
@@ -34,6 +33,14 @@ export class PopUpComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.appService?.currentTask.name !== ''){
+      const task: any = this.appService.tasks.find(t => t === this.appService.currentTask);
+      task.name = this.todo.name
+      task.todo = this.todo.todo
+      task.date = this.todo.date
+    }else{
+      this.appService.tasks.push(this.todo)
+    }
     this.appService.submitData(this.todo)
     this.closeForm();
   }
